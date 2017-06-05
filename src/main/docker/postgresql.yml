@@ -1,0 +1,11 @@
+version: '2'
+services:
+    shivanicorrugation-postgresql:
+        image: postgres:9.6.2
+        # volumes:
+        #     - ~/volumes/jhipster/shivaniCorrugation/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=shivaniCorrugation
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
