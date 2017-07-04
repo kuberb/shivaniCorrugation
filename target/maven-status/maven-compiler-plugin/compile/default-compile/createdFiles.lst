@@ -36,6 +36,7 @@ com\shivani\corrugation\service\MailService.class
 com\shivani\corrugation\web\rest\errors\ExceptionTranslator.class
 com\shivani\corrugation\service\AuditEventService.class
 com\shivani\corrugation\config\Constants.class
+com\shivani\corrugation\config\JacksonConfiguration.class
 com\shivani\corrugation\config\LoggingConfiguration$LogbackLoggerContextListener.class
 com\shivani\corrugation\web\rest\LogsResource.class
 com\shivani\corrugation\security\jwt\JWTFilter.class
