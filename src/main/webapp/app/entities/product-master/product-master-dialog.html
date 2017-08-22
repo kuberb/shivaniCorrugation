@@ -1,0 +1,345 @@
+{{vm.productMaster.ply1}}
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProductMasterLabel">Create or edit a Product Master</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.productMaster.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.productMaster.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_productId">Product Id</label>
+            <input type="number" class="form-control" name="productId" id="field_productId"
+                    ng-model="vm.productMaster.productId"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_productName">Product Name</label>
+            <input type="text" class="form-control" name="productName" id="field_productName"
+                    ng-model="vm.productMaster.productName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_productDescription">Product Description</label>
+            <input type="text" class="form-control" name="productDescription" id="field_productDescription"
+                    ng-model="vm.productMaster.productDescription"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_customer">Customer</label>
+            <input type="text" class="form-control" name="customer" id="field_customer"
+                    ng-model="vm.productMaster.customer"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_type">Type</label>
+            <select class="form-control" name="type" ng-model="vm.productMaster.type" id="field_type">
+                <option value="THREEPLY">THREEPLY</option>
+                <option value="FIVEPLY">FIVEPLY</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_decal">Decal</label>
+            <input type="number" class="form-control" name="decal" id="field_decal"
+                    ng-model="vm.productMaster.decal"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_length">Length</label>
+            <input type="number" class="form-control" name="length" id="field_length"
+                    ng-model="vm.productMaster.length" ng-change="dim()"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_width">Width</label>
+            <input type="number" class="form-control" name="width" id="field_width"
+                    ng-model="vm.productMaster.width" ng-change="dim()"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_height">Height</label>
+            <input type="number" class="form-control" name="height" id="field_height"
+                    ng-model="vm.productMaster.height" ng-change="dim()"
+                    />
+        </div>
+        <div class="form-group"  ng-show="vm.productMaster.length && vm.productMaster.width && vm.productMaster.height">
+            <label class="control-label" for="field_reelSize">Reel Size</label>
+            <input type="number" class="form-control" name="reelSize" id="field_reelSize"
+                    ng-model="vm.productMaster.reelSize" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.length && vm.productMaster.width && vm.productMaster.height">
+            <label class="control-label" for="field_sheetSize">Sheet Size</label>
+            <input type="number" class="form-control" name="sheetSize" id="field_sheetSize"
+                    ng-model="vm.productMaster.sheetSize" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.length && vm.productMaster.width && vm.productMaster.height">
+            <label class="control-label" for="field_surfaceArea">Surface Area</label>
+            <input type="number" class="form-control" name="surfaceArea" id="field_surfaceArea"
+                    ng-model="vm.productMaster.surfaceArea" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.type=='THREEPLY' || vm.productMaster.type=='FIVEPLY'">
+            <label class="control-label" for="field_ply1">Ply 1</label>
+            <select type="number" class="form-control" name="ply1" id="field_ply1"
+                    ng-model="vm.productMaster.ply1" ng-change="ply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.type=='THREEPLY' || vm.productMaster.type=='FIVEPLY'">
+            <label class="control-label" for="field_ply2">Ply 2</label>
+            <select type="number" class="form-control" name="ply2" id="field_ply2"
+                    ng-model="vm.productMaster.ply2" ng-change="ply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.type=='THREEPLY' || vm.productMaster.type=='FIVEPLY'">
+            <label class="control-label" for="field_ply3">Ply 3</label>
+            <select type="number" class="form-control" name="ply3" id="field_ply3"
+                    ng-model="vm.productMaster.ply3" ng-change="ply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.type=='FIVEPLY'">
+            <label class="control-label" for="field_ply4">Ply 4</label>
+            <select type="number" class="form-control" name="ply4" id="field_ply4"
+                    ng-model="vm.productMaster.ply4" ng-change="ply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.type=='FIVEPLY'">
+            <label class="control-label" for="field_ply5">Ply 5</label>
+            <select type="number" class="form-control" name="ply5" id="field_ply5"
+                    ng-model="vm.productMaster.ply5" ng-change="ply()" 	ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.ply1">
+            <label class="control-label" for="field_ply1Weight">Ply 1 Weight</label>
+            <input type="number" class="form-control" name="ply1Weight" id="field_ply1Weight"
+                    ng-model="vm.productMaster.ply1Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.ply2">
+            <label class="control-label" for="field_ply2Weight">Ply 2 Weight</label>
+            <input type="number" class="form-control" name="ply2Weight" id="field_ply2Weight"
+                    ng-model="vm.productMaster.ply2Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.ply3">
+            <label class="control-label" for="field_ply3Weight">Ply 3 Weight</label>
+            <input type="number" class="form-control" name="ply3Weight" id="field_ply3Weight"
+                    ng-model="vm.productMaster.ply3Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.ply4">
+            <label class="control-label" for="field_ply4Weight">Ply 4 Weight</label>
+            <input type="number" class="form-control" name="ply4Weight" id="field_ply4Weight"
+                    ng-model="vm.productMaster.ply4Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.ply5">
+            <label class="control-label" for="field_ply5Weight">Ply 5 Weight</label>
+            <input type="number" class="form-control" name="ply5Weight" id="field_ply5Weight"
+                    ng-model="vm.productMaster.ply5Weight" readonly
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_plateQty">Plate Qty</label>
+            <input type="number" class="form-control" name="plateQty" id="field_plateQty"
+                    ng-model="vm.productMaster.plateQty" ng-change="plateply()"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_partitionQty">Partition Qty</label>
+            <input type="number" class="form-control" name="partitionQty" id="field_partitionQty"
+                    ng-model="vm.productMaster.partitionQty" ng-change="partitionply()"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.plateQty">
+            <label class="control-label" for="field_plateLength">Plate Length</label>
+            <input type="number" class="form-control" name="plateLength" id="field_plateLength"
+                    ng-model="vm.productMaster.plateLength" ng-change="platedim()"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.plateQty">
+            <label class="control-label" for="field_plateWidth">Plate Width</label>
+            <input type="number" class="form-control" name="plateWidth" id="field_plateWidth"
+                    ng-model="vm.productMaster.plateWidth" ng-change="platedim()"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionQty">
+            <label class="control-label" for="field_partitionLength">Partition Length</label>
+            <input type="number" class="form-control" name="partitionLength" id="field_partitionLength"
+                    ng-model="vm.productMaster.partitionLength" ng-change="partitiondim()"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionQty">
+            <label class="control-label" for="field_partitionWidth">Partition Width</label>
+            <input type="number" class="form-control" name="partitionWidth" id="field_partitionWidth"
+                    ng-model="vm.productMaster.partitionWidth" ng-change="partitiondim()"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.plateQty">
+            <label class="control-label" for="field_platePly1">Plate Ply 1</label>
+            <select type="number" class="form-control" name="platePly1" id="field_platePly1"
+                    ng-model="vm.productMaster.platePly1" ng-change="plateply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.plateQty">
+            <label class="control-label" for="field_platePly2">Plate Ply 2</label>
+            <select type="number" class="form-control" name="platePly2" id="field_platePly2"
+                    ng-model="vm.productMaster.platePly2" ng-change="plateply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.plateQty">
+            <label class="control-label" for="field_platePly3">Plate Ply 3</label>
+            <select type="number" class="form-control" name="platePly3" id="field_platePly3"
+                    ng-model="vm.productMaster.platePly3" ng-change="plateply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.plateQty">
+            <label class="control-label" for="field_platePly4">Plate Ply 4</label>
+            <select type="number" class="form-control" name="platePly4" id="field_platePly4"
+                    ng-model="vm.productMaster.platePly4" ng-change="plateply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.plateQty">
+            <label class="control-label" for="field_platePly5">Plate Ply 5</label>
+            <select type="number" class="form-control" name="platePly5" id="field_platePly5"
+                    ng-model="vm.productMaster.platePly5" ng-change="plateply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionQty">
+            <label class="control-label" for="field_partitionPly1">Partition Ply 1</label>
+            <select type="number" class="form-control" name="partitionPly1" id="field_partitionPly1"
+                    ng-model="vm.productMaster.partitionPly1" ng-change="partitionply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionQty">
+            <label class="control-label" for="field_partitionPly2">Partition Ply 2</label>
+            <select type="number" class="form-control" name="partitionPly2" id="field_partitionPly2"
+                    ng-model="vm.productMaster.partitionPly2" ng-change="partitionply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionQty">
+            <label class="control-label" for="field_partitionPly3">Partition Ply 3</label>
+            <select type="number" class="form-control" name="partitionPly3" id="field_partitionPly3"
+                    ng-model="vm.productMaster.partitionPly3" ng-change="partitionply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionQty">
+            <label class="control-label" for="field_partitionPly4">Partition Ply 4</label>
+            <select type="number" class="form-control" name="partitionPly4" id="field_partitionPly4"
+                    ng-model="vm.productMaster.partitionPly4" ng-change="partitionply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionQty">
+            <label class="control-label" for="field_partitionPly5">Partition Ply 5</label>
+            <select type="number" class="form-control" name="partitionPly5" id="field_partitionPly5"
+                    ng-model="vm.productMaster.partitionPly5" ng-change="partitionply()" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id"
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.platePly1">
+            <label class="control-label" for="field_platePly1Weight">Plate Ply 1 Weight</label>
+            <input type="number" class="form-control" name="platePly1Weight" id="field_platePly1Weight"
+                    ng-model="vm.productMaster.platePly1Weight"  readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.platePly2">
+            <label class="control-label" for="field_platePly2Weight">Plate Ply 2 Weight</label>
+            <input type="number" class="form-control" name="platePly2Weight" id="field_platePly2Weight"
+                    ng-model="vm.productMaster.platePly2Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.platePly3">
+            <label class="control-label" for="field_platePly3Weight">Plate Ply 3 Weight</label>
+            <input type="number" class="form-control" name="platePly3Weight" id="field_platePly3Weight"
+                    ng-model="vm.productMaster.platePly3Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.platePly4">
+            <label class="control-label" for="field_platePly4Weight">Plate Ply 4 Weight</label>
+            <input type="number" class="form-control" name="platePly4Weight" id="field_platePly4Weight"
+                    ng-model="vm.productMaster.platePly4Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.platePly5">
+            <label class="control-label" for="field_platePly5Weight">Plate Ply 5 Weight</label>
+            <input type="number" class="form-control" name="platePly5Weight" id="field_platePly5Weight"
+                    ng-model="vm.productMaster.platePly5Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionPly1">
+            <label class="control-label" for="field_partitionPly1Weight">Partition Ply 1 Weight</label>
+            <input type="number" class="form-control" name="partitionPly1Weight" id="field_partitionPly1Weight"
+                    ng-model="vm.productMaster.partitionPly1Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionPly2">
+            <label class="control-label" for="field_partitionPly2Weight">Partition Ply 2 Weight</label>
+            <input type="number" class="form-control" name="partitionPly2Weight" id="field_partitionPly2Weight"
+                    ng-model="vm.productMaster.partitionPly2Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionPly3">
+            <label class="control-label" for="field_partitionPly3Weight">Partition Ply 3 Weight</label>
+            <input type="number" class="form-control" name="partitionPly3Weight" id="field_partitionPly3Weight"
+                    ng-model="vm.productMaster.partitionPly3Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionPly4">
+            <label class="control-label" for="field_partitionPly4Weight">Partition Ply 4 Weight</label>
+            <input type="number" class="form-control" name="partitionPly4Weight" id="field_partitionPly4Weight"
+                    ng-model="vm.productMaster.partitionPly4Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionPly5">
+            <label class="control-label" for="field_partitionPly5Weight">Partition Ply 5 Weight</label>
+            <input type="number" class="form-control" name="partitionPly5Weight" id="field_partitionPly5Weight"
+                    ng-model="vm.productMaster.partitionPly5Weight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.plateQty">
+            <label class="control-label" for="field_plateWeight">Plate Weight</label>
+            <input type="number" class="form-control" name="plateWeight" id="field_plateWeight"
+                    ng-model="vm.productMaster.plateWeight" readonly
+                    />
+        </div>
+        <div class="form-group" ng-show="vm.productMaster.partitionQty">
+            <label class="control-label" for="field_partitionWeight">Partition Weight</label>
+            <input type="number" class="form-control" name="partitionWeight" id="field_partitionWeight"
+                    ng-model="vm.productMaster.partitionWeight" readonly
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_boxWeight">Box Weight</label>
+            <input type="number" class="form-control" name="boxWeight" id="field_boxWeight"
+                    ng-model="vm.productMaster.boxWeight" readonly
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_productWeight">Product Weight</label>
+            <input type="number" class="form-control" name="productWeight" id="field_productWeight"
+                    ng-model="vm.productMaster.productWeight" readonly
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                    ng-model="vm.productMaster.price"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

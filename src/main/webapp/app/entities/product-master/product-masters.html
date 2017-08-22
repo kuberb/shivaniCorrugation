@@ -1,0 +1,181 @@
+<div>
+    <h2>Product Masters</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="product-master.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down" >
+                        Create new Product Master
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="Query">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="productId"><span>Product Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="productName"><span>Product Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="productDescription"><span>Product Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="customer"><span>Customer</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="type"><span>Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="decal"><span>Decal</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="length"><span>Length</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="width"><span>Width</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="height"><span>Height</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reelSize"><span>Reel Size</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sheetSize"><span>Sheet Size</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="surfaceArea"><span>Surface Area</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ply1"><span>Ply 1</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ply2"><span>Ply 2</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ply3"><span>Ply 3</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ply4"><span>Ply 4</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ply5"><span>Ply 5</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ply1Weight"><span>Ply 1 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ply2Weight"><span>Ply 2 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ply3Weight"><span>Ply 3 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ply4Weight"><span>Ply 4 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ply5Weight"><span>Ply 5 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="plateQty"><span>Plate Qty</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionQty"><span>Partition Qty</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="plateLength"><span>Plate Length</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="plateWidth"><span>Plate Width</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionLength"><span>Partition Length</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionWidth"><span>Partition Width</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="platePly1"><span>Plate Ply 1</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="platePly2"><span>Plate Ply 2</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="platePly3"><span>Plate Ply 3</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="platePly4"><span>Plate Ply 4</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="platePly5"><span>Plate Ply 5</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionPly1"><span>Partition Ply 1</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionPly2"><span>Partition Ply 2</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionPly3"><span>Partition Ply 3</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionPly4"><span>Partition Ply 4</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionPly5"><span>Partition Ply 5</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="platePly1Weight"><span>Plate Ply 1 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="platePly2Weight"><span>Plate Ply 2 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="platePly3Weight"><span>Plate Ply 3 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="platePly4Weight"><span>Plate Ply 4 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="platePly5Weight"><span>Plate Ply 5 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionPly1Weight"><span>Partition Ply 1 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionPly2Weight"><span>Partition Ply 2 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionPly3Weight"><span>Partition Ply 3 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionPly4Weight"><span>Partition Ply 4 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionPly5Weight"><span>Partition Ply 5 Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="plateWeight"><span>Plate Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partitionWeight"><span>Partition Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="boxWeight"><span>Box Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="productWeight"><span>Product Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="price"><span>Price</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="productMaster in vm.productMasters track by productMaster.id">
+                    <td><a ui-sref="product-master-detail({id:productMaster.id})">{{productMaster.id}}</a></td>
+                    <td>{{productMaster.productId}}</td>
+                    <td>{{productMaster.productName}}</td>
+                    <td>{{productMaster.productDescription}}</td>
+                    <td>{{productMaster.customer}}</td>
+                    <td>{{productMaster.type}}</td>
+                    <td>{{productMaster.decal}}</td>
+                    <td>{{productMaster.length}}</td>
+                    <td>{{productMaster.width}}</td>
+                    <td>{{productMaster.height}}</td>
+                    <td>{{productMaster.reelSize}}</td>
+                    <td>{{productMaster.sheetSize}}</td>
+                    <td>{{productMaster.surfaceArea}}</td>
+                    <td>{{productMaster.ply1}}</td>
+                    <td>{{productMaster.ply2}}</td>
+                    <td>{{productMaster.ply3}}</td>
+                    <td>{{productMaster.ply4}}</td>
+                    <td>{{productMaster.ply5}}</td>
+                    <td>{{productMaster.ply1Weight}}</td>
+                    <td>{{productMaster.ply2Weight}}</td>
+                    <td>{{productMaster.ply3Weight}}</td>
+                    <td>{{productMaster.ply4Weight}}</td>
+                    <td>{{productMaster.ply5Weight}}</td>
+                    <td>{{productMaster.plateQty}}</td>
+                    <td>{{productMaster.partitionQty}}</td>
+                    <td>{{productMaster.plateLength}}</td>
+                    <td>{{productMaster.plateWidth}}</td>
+                    <td>{{productMaster.partitionLength}}</td>
+                    <td>{{productMaster.partitionWidth}}</td>
+                    <td>{{productMaster.platePly1}}</td>
+                    <td>{{productMaster.platePly2}}</td>
+                    <td>{{productMaster.platePly3}}</td>
+                    <td>{{productMaster.platePly4}}</td>
+                    <td>{{productMaster.platePly5}}</td>
+                    <td>{{productMaster.partitionPly1}}</td>
+                    <td>{{productMaster.partitionPly2}}</td>
+                    <td>{{productMaster.partitionPly3}}</td>
+                    <td>{{productMaster.partitionPly4}}</td>
+                    <td>{{productMaster.partitionPly5}}</td>
+                    <td>{{productMaster.platePly1Weight}}</td>
+                    <td>{{productMaster.platePly2Weight}}</td>
+                    <td>{{productMaster.platePly3Weight}}</td>
+                    <td>{{productMaster.platePly4Weight}}</td>
+                    <td>{{productMaster.platePly5Weight}}</td>
+                    <td>{{productMaster.partitionPly1Weight}}</td>
+                    <td>{{productMaster.partitionPly2Weight}}</td>
+                    <td>{{productMaster.partitionPly3Weight}}</td>
+                    <td>{{productMaster.partitionPly4Weight}}</td>
+                    <td>{{productMaster.partitionPly5Weight}}</td>
+                    <td>{{productMaster.plateWeight}}</td>
+                    <td>{{productMaster.partitionWeight}}</td>
+                    <td>{{productMaster.boxWeight}}</td>
+                    <td>{{productMaster.productWeight}}</td>
+                    <td>{{productMaster.price}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="product-master-detail({id:productMaster.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="product-master.edit({id:productMaster.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="product-master.delete({id:productMaster.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

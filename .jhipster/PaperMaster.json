@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "product",
+            "otherEntityName": "productMaster",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "paper"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mill",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gsm",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "bf",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Float"
+        }
+    ],
+    "changelogDate": "20170728090649",
+    "entityTableName": "paper_master",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no"
+}

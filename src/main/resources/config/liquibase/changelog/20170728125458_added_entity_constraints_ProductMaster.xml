@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ProductMaster.
+    -->
+    <changeSet id="20170728125458-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="product_masters_id"
+                                 baseTableName="product_master_paper"
+                                 constraintName="fk_product_master_paper_product_masters_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_master"/>
+        <addForeignKeyConstraint baseColumnNames="papers_id"
+                                 baseTableName="product_master_paper"
+                                 constraintName="fk_product_master_paper_papers_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="paper_master"/>
+        
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,62 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPaperMasterLabel">Create or edit a Paper Master</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.paperMaster.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.paperMaster.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.paperMaster.name"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.paperMaster.description"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_mill">Mill</label>
+            <input type="text" class="form-control" name="mill" id="field_mill"
+                    ng-model="vm.paperMaster.mill"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_gsm">Gsm</label>
+            <input type="number" class="form-control" name="gsm" id="field_gsm"
+                    ng-model="vm.paperMaster.gsm"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_bf">Bf</label>
+            <input type="number" class="form-control" name="bf" id="field_bf"
+                    ng-model="vm.paperMaster.bf"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                    ng-model="vm.paperMaster.price"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

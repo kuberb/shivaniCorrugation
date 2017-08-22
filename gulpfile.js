@@ -1,4 +1,4 @@
-// Generated on 2017-07-04 using generator-jhipster 4.5.6
+// Generated on 2017-07-28 using generator-jhipster 4.6.2
 'use strict';
 
 var gulp = require('gulp'),
@@ -93,7 +93,8 @@ gulp.task('ngconstant:dev', function () {
         name: 'shivaniCorrugationApp',
         constants: {
             VERSION: util.parseVersion(),
-            DEBUG_INFO_ENABLED: true
+            DEBUG_INFO_ENABLED: true,
+            BUILD_TIMESTAMP: ''
         },
         template: config.constantTemplate,
         stream: true
@@ -107,7 +108,8 @@ gulp.task('ngconstant:prod', function () {
         name: 'shivaniCorrugationApp',
         constants: {
             VERSION: util.parseVersion(),
-            DEBUG_INFO_ENABLED: false
+            DEBUG_INFO_ENABLED: false,
+            BUILD_TIMESTAMP: new Date().getTime()
         },
         template: config.constantTemplate,
         stream: true

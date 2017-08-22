@@ -1,0 +1,233 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "paper",
+            "otherEntityName": "paperMaster",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "productId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "productName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "ProductType",
+            "fieldValues": "THREEPLY,FIVEPLY"
+        },
+        {
+            "fieldName": "decal",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "length",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "width",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "height",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "reelSize",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "sheetSize",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "surfaceArea",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "ply1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "ply2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "ply3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "ply4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "ply5",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "ply1Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "ply2Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "ply3Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "ply4Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "ply5Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "plateQty",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "partitionQty",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "plateLength",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "plateWidth",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "partitionLength",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "partitionWidth",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "platePly1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "platePly2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "platePly3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "platePly4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "platePly5",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "partitionPly1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "partitionPly2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "partitionPly3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "partitionPly4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "partitionPly5",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "platePly1Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "platePly2Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "platePly3Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "platePly4Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "platePly5Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "partitionPly1Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "partitionPly2Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "partitionPly3Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "partitionPly4Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "partitionPly5Weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "plateWeight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "partitionWeight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "boxWeight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "productWeight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Float"
+        }
+    ],
+    "changelogDate": "20170728125458",
+    "entityTableName": "product_master",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no"
+}

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity ProductMaster.
+    -->
+    <changeSet id="20170728125458-1" author="jhipster">
+        <createTable tableName="product_master">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_id" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="product_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="product_description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="customer" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="decal" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="length" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="width" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="height" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="reel_size" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sheet_size" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="surface_area" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ply_1" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ply_2" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ply_3" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ply_4" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ply_5" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ply_1_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ply_2_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ply_3_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ply_4_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ply_5_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_qty" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_qty" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_length" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_width" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_length" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_width" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_ply_1" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_ply_2" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_ply_3" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_ply_4" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_ply_5" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_ply_1" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_ply_2" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_ply_3" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_ply_4" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_ply_5" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_ply_1_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_ply_2_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_ply_3_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_ply_4_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_ply_5_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_ply_1_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_ply_2_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_ply_3_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_ply_4_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_ply_5_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="plate_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="partition_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="box_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="product_weight" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="price" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+        <createTable tableName="product_master_paper">
+            <column name="papers_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_masters_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="product_masters_id, papers_id" tableName="product_master_paper"/>
+        
+    </changeSet>
+</databaseChangeLog>

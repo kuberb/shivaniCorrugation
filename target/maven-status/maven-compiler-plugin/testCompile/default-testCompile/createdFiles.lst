@@ -1,3 +1,5 @@
+com\shivani\corrugation\web\rest\util\PaginationUtilUnitTest.class
+com\shivani\corrugation\web\rest\ProductMasterResourceIntTest.class
 com\shivani\corrugation\service\MailServiceIntTest.class
 com\shivani\corrugation\web\rest\UserResourceIntTest.class
 com\shivani\corrugation\web\rest\AuditResourceIntTest.class
@@ -14,6 +16,7 @@ com\shivani\corrugation\config\WebConfigurerTest.class
 com\shivani\corrugation\web\rest\errors\ExceptionTranslatorTestController$TestDTO.class
 com\shivani\corrugation\security\SecurityUtilsUnitTest.class
 com\shivani\corrugation\security\jwt\JWTFilterTest.class
+com\shivani\corrugation\web\rest\PaperMasterResourceIntTest.class
 com\shivani\corrugation\web\rest\errors\ExceptionTranslatorIntTest.class
 com\shivani\corrugation\web\rest\UserJWTControllerIntTest.class
 com\shivani\corrugation\web\rest\AccountResourceIntTest.class

@@ -1,0 +1,87 @@
+entity ProductMaster {
+	productId Integer,
+    productName String,
+    productDescription String,
+    customer String,
+    type ProductType,
+    decal Integer,
+    length Integer,
+    width Integer,
+    height Integer,
+    reelSize Float,
+    sheetSize Float,
+    surfaceArea Float,
+    ply1 Long,
+    ply2 Long,
+    ply3 Long,
+    ply4 Long,
+    ply5 Long,
+    ply1Weight Long,
+    ply2Weight Long,
+    ply3Weight Long,
+    ply4Weight Long,
+    ply5Weight Long,
+    plateQty Integer,
+    partitionQty Integer,
+    plateLength Integer,
+    plateWidth Integer,
+    partitionLength Integer,
+    partitionWidth Integer,
+    platePly1 Long,
+    platePly2 Long,
+    platePly3 Long,
+    platePly4 Long,
+    platePly5 Long,
+    partitionPly1 Long,
+    partitionPly2 Long,
+    partitionPly3 Long,
+    partitionPly4 Long,
+    partitionPly5 Long,
+    platePly1Weight Long,
+    platePly2Weight Long,
+    platePly3Weight Long,
+    platePly4Weight Long,
+    platePly5Weight Long,
+    partitionPly1Weight Long,
+    partitionPly2Weight Long,
+    partitionPly3Weight Long,
+    partitionPly4Weight Long,
+    partitionPly5Weight Long,
+    plateWeight Long,
+    partitionWeight Long,
+    boxWeight Long,
+    productWeight Long,
+    price Float
+}
+
+entity PaperMaster {
+	name String,
+    description String,
+    mill String,
+    gsm Integer,
+    bf Integer,
+    price Float
+}
+
+entity Reel {
+	reelNumber Long,
+	decal Long,
+	weight Long,
+	receivedOn LocalDate,
+	lotNo Long
+}
+
+enum ProductType {
+    THREEPLY, FIVEPLY
+}
+
+relationship ManyToMany {
+  ProductMaster{paper} to PaperMaster{product}
+}
+
+relationship ManyToOne {
+  Reel{paper} to PaperMaster
+}
+
+paginate all with pagination
+
