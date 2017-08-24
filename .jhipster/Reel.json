@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "paper",
+            "otherEntityName": "paperMaster",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "reelNumber",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "decal",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "receivedOn",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "lotNo",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20170822132617",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "reel",
+    "pagination": "pager"
+}

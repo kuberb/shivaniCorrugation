@@ -10,6 +10,7 @@ com\shivani\corrugation\security\SecurityUtils.class
 com\shivani\corrugation\domain\Authority.class
 com\shivani\corrugation\config\LocaleConfiguration.class
 com\shivani\corrugation\web\rest\vm\ManagedUserVM.class
+com\shivani\corrugation\repository\ReelRepository.class
 com\shivani\corrugation\repository\search\UserSearchRepository.class
 com\shivani\corrugation\domain\User.class
 com\shivani\corrugation\web\rest\ProductMasterResource.class
@@ -18,6 +19,7 @@ com\shivani\corrugation\service\MailService.class
 com\shivani\corrugation\web\rest\errors\ExceptionTranslator.class
 com\shivani\corrugation\service\AuditEventService.class
 com\shivani\corrugation\config\Constants.class
+com\shivani\corrugation\domain\Reel.class
 com\shivani\corrugation\config\JacksonConfiguration.class
 com\shivani\corrugation\security\jwt\JWTFilter.class
 com\shivani\corrugation\web\rest\UserJWTController$JWTToken.class
@@ -26,6 +28,7 @@ com\shivani\corrugation\config\DefaultProfileUtil.class
 com\shivani\corrugation\repository\PersistenceAuditEventRepository.class
 com\shivani\corrugation\config\AsyncConfiguration.class
 com\shivani\corrugation\config\MetricsConfiguration.class
+com\shivani\corrugation\web\rest\ReelResource.class
 com\shivani\corrugation\security\UserNotActivatedException.class
 com\shivani\corrugation\config\audit\AuditEventConverter.class
 com\shivani\corrugation\domain\ProductMaster.class
@@ -60,6 +63,7 @@ com\shivani\corrugation\config\SecurityConfiguration.class
 com\shivani\corrugation\config\LoggingConfiguration$LogbackLoggerContextListener.class
 com\shivani\corrugation\web\rest\LogsResource.class
 com\shivani\corrugation\repository\AuthorityRepository.class
+com\shivani\corrugation\repository\search\ReelSearchRepository.class
 com\shivani\corrugation\config\CloudDatabaseConfiguration.class
 com\shivani\corrugation\config\LoggingAspectConfiguration.class
 com\shivani\corrugation\web\rest\ProfileInfoResource.class

@@ -1,0 +1,66 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myReelLabel">Create or edit a Reel</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.reel.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.reel.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_reelNumber">Reel Number</label>
+            <input type="number" class="form-control" name="reelNumber" id="field_reelNumber"
+                    ng-model="vm.reel.reelNumber"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_decal">Decal</label>
+            <input type="number" class="form-control" name="decal" id="field_decal"
+                    ng-model="vm.reel.decal"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_weight">Weight</label>
+            <input type="number" class="form-control" name="weight" id="field_weight"
+                    ng-model="vm.reel.weight"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_receivedOn">Received On</label>
+                <div class="input-group">
+                    <input id="field_receivedOn" type="text" class="form-control" name="receivedOn" uib-datepicker-popup="{{dateformat}}" ng-model="vm.reel.receivedOn" is-open="vm.datePickerOpenStatus.receivedOn"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('receivedOn')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lotNo">Lot No</label>
+            <input type="number" class="form-control" name="lotNo" id="field_lotNo"
+                    ng-model="vm.reel.lotNo"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label for="field_paper">Paper</label>
+            <select class="form-control" id="field_paper" name="paper" ng-model="vm.reel.paper" ng-options="paperMaster as paperMaster.name for paperMaster in vm.papermasters track by paperMaster.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
